@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 Xdata, ydata = [], []
 with open('data/ex1data2.txt','rU') as f:
@@ -37,8 +38,12 @@ def gradient_descent(Theta, X, y, alpha=0.01, num_iterations=10000):
 	return Theta, J_cost
 
 Theta, J = gradient_descent(Theta, X, y)
-
 print Theta
 print J
+
+plt.plot(range(10000),J)
+plt.xlabel('Number of Iterations')
+plt.ylabel('Cost J')
+plt.show()
 
 ##########################################
