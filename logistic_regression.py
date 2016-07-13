@@ -3,14 +3,8 @@ from gradient_descent import normalize
 from scipy.optimize import fmin_bfgs
 import binary_data_generator as bin_data
 
-
-
-
-
 def sigmoid(X):
     return (1+np.exp(-X))**(-1)
-
-
 
 def J_log_regularized(theta, X, y, lamb=0):
     m = len(y)
