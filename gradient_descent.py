@@ -12,7 +12,7 @@ def normalize(X):
     normalized_X = (X-mu)/sigma
     return np.insert(normalized_X, 0, 1, axis=1)
 
-def mean_square_error(Theta, X, y):
+def J_mse(Theta, X, y):
     m = len(y)
     # J = 1/(2*m) * sum((X*Theta - y)^2)
     return 1/(2.*m)*sum(np.square((np.subtract(X.dot(Theta),y))))
@@ -25,8 +25,8 @@ def gradient_descent(Theta, X, y, alpha=0.01, num_iterations=1000, live=False):
 
     for i in xrange(num_iterations):
         # Theta = Theta - alpha/m * X'* (X * Theta - y)
-        Theta = np.subtract(Theta, alpha/m*X.transpose().dot(np.subtract(X.dot(Theta),y)))
-        J_cost[i] = mean_square_error(Theta, X, y)
+        Theta = np.subtract(Theta, alpha/m*X.T.dot(np.subtract(X.dot(Theta),y)))
+        J_cost[i] = J_mse(Theta, X, y)
 
         if live:
             Theta_history.append(Theta)
