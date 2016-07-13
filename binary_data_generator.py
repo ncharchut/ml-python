@@ -43,16 +43,13 @@ def plot_data(data0, data1, boundary=False, Theta=None, X=None, y=None):
     x_1, y_1 = data1
     data_0 = plt.plot(x_0,y_0,'o',color='blue',fillstyle='none',label='Data 0')
     data_1 = plt.plot(x_1,y_1,'o',color='orange',fillstyle='none',label='Data 1')
-    ax = plt.gca()
     if boundary:
         if np.size(X,1) <= 2:
-            plot_x = [min(X[:,1])-1, max(X[:,1])+1]
-            print plot_x
-            ax.xlim = ([plot_x[0]+4, plot_x[1]-4])
+            plot_x = [min(X[:,1])-2, max(X[:,1])+2]
             slope = -1./Theta[2]*Theta[1]
             plot_y = [slope*plot_x[0] + Theta[0], slope*plot_x[1] + Theta[0]]
-            plt.plot(plot_x,plot_y,color='r',label='Decision Boundary')
-    plt.legend(frameon=False,loc=0,framealpha=0.5)
+            plt.plot(plot_x,plot_y,color='r',label='Decision Boundary',scalex=False,scaley=False)
+    plt.legend(loc=0)
     plt.show()
     return plt
 

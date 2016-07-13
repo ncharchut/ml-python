@@ -19,18 +19,7 @@ def J_log_regularized(theta, X, y, lamb=0):
         lamb/(2.*m) * sum(theta**2)
     return J[0]
 
-def compute_gradient(Theta, X, y, lamb=0):
-    m = len(y)
-    Theta = np.array([Theta]).T
-    hx = sigmoid(X.dot(Theta))
-    Theta[0] = 0
-    grad = 1./m * X.T.dot(hx - y) + lamb/m * Theta
-    grad[0] -= lamb/m*Theta[0]
-
-    return grad[0][0]    
-
 def plot_decision_boundary(plt, Theta, X, y):
-    # ax = plt.gca()
     if np.size(X,1) <= 2:
         plot_x = [min(X[:,1])-2, max(X[:,1])+2]
         slope = -1./Theta[2]*Theta[1]
