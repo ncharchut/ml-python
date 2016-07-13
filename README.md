@@ -4,4 +4,4 @@ Python implementations of machine learning concepts
 ## Methods employed
 - [x] Linear Regression/Gradient Descent
 - [x] Logistic Regression
-- [ ] k - Nearest Neighbor
+- [x] k - Nearest Neighbor, using scikit
